@@ -1,0 +1,18 @@
+Uma startup deseja desenvolver um sistema para gerenciamento de eventos. 
+O sistema deve permitir o cadastro de eventos, participantes e organizadores. 
+Além disso, deve gerenciar as inscrições dos participantes e controlar os pagamentos.
+
+Requisitos do Sistema:
+
+Um evento possui um nome, data, horário, local e uma descrição.
+Cada evento pode ter vários organizadores, e um organizador pode gerenciar vários eventos.
+Os participantes se cadastram informando nome, e-mail e telefone.
+Um participante pode se inscrever em vários eventos, e um evento pode ter vários participantes.
+Cada inscrição pode ter um status (pendente, confirmada, cancelada).
+O sistema deve registrar os pagamentos das inscrições, armazenando valor pago, data do pagamento e forma de pagamento (cartão, boleto, pix).
+Tarefa
+Com base nos requisitos acima:
+
+Identifique as entidades e seus atributos.
+Defina os relacionamentos entre as entidades.
+crie o diagrama conceitual
