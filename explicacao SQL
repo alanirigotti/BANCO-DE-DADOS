@@ -1,0 +1,16 @@
+sql - structered query language 
+
+CREATE - cria alguma coisa 
+ALTER - altera alguma coisa
+DROP - delete alguma coisa
+
+na modelagem usamos
+CREATE TABLE - cria uma tabela
+ALTER TABLE - altera uma tabela 
+DROP TABLE - deleta uma tabela 
+
+/* 
+comentario longo 
+*/
+
+-- comentario curto
