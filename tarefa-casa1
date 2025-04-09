@@ -1,0 +1,53 @@
+Exercício modelagem fisica (instrução): Sistema de Reserva de Hospedagem em Hotel
+Contexto: Você deve modelar um banco de dados para um sistema de reservas de hospedagem em um hotel. O sistema deve permitir que hóspedes façam reservas em diferentes tipos de quartos, com data de entrada e saída.
+
+Requisitos:
+
+Cada hóspede tem um nome, CPF, telefone e e-mail.
+
+Cada quarto tem um número, tipo (simples, duplo, suíte) e status (livre, ocupado, manutenção).
+
+Uma reserva deve ter uma data de check-in e check-out, estar vinculada a um hóspede e a um quarto.
+
+O sistema deve permitir armazenar múltiplas reservas para um hóspede ao longo do tempo.
+
+Tarefa:
+
+Crie a modelagem física do banco de dados considerando as tabelas necessárias e os relacionamentos.
+
+Defina as chaves primárias e estrangeiras.
+
+Inclua índices para otimizar buscas. --ignorar
+
+Dica: Pense na relação entre hóspede, reserva e quarto (1 hóspede pode fazer várias reservas, 1 reserva é para 1 quarto).
+
+
+Exercício2 (modelagem fisica com interface): Sistema de Compra de Passagem de Ônibus
+Contexto: Você precisa modelar um banco de dados para um sistema de vendas de passagens de ônibus. O sistema deve registrar informações sobre os passageiros, horários de viagens e assentos ocupados.
+
+Requisitos:
+
+Cada passageiro tem nome, CPF e telefone.
+
+Cada viagem é operada por um ônibus e tem origem, destino, data e horário de partida.
+
+Um ônibus tem um número único, quantidade total de assentos e uma empresa responsável.
+
+Cada passagem comprada deve estar associada a um passageiro, a uma viagem específica e a um assento dentro do ônibus.
+	
+O sistema deve impedir a venda de um assento já reservado.
+
+Tarefa:
+
+Modele as tabelas para armazenar as informações.
+
+Defina as chaves primárias e estrangeiras.
+
+Pense nos índices necessários para otimizar buscas, como por CPF ou número da viagem.
+
+Dica: A relação entre passageiro, passagem e viagem é essencial (1 viagem pode ter vári pertence a 1 passageiro).as passagens, 1 passagem
+
+
+
+S SCRIPTS PARA ema colocando o nome de cada modelo ex: modelagem_instrucoes ou modelagem_visual
+PRAZO FINAL QUARTA 09/04qx'CR
