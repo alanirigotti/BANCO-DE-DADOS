@@ -1,0 +1,20 @@
+1. Liste todos os produtos com suas respectivas categorias
+2. Liste todos os produtos, com ou sem categoria
+3. Liste os produtos que pertencem a categorias ativas
+4. Liste quantos produtos existem por categoria
+5. Liste o produto mais caro de cada categoria
+
+6. DESAFIO - MONTE UMA CONSULTA COM AS REGRAS ABAIXO
+Traga o nome do produto, o preço, a categoria
+Filtre os produtos com preço entre X e Y
+Mostre somente as categorias ativas.
+Só traga os produtos cujo nome contenha uma palavra específica 
+Agrupe os resultados por categoria.
+Mostre também:
+	•	A quantidade de produtos por categoria.
+	•	O preço médio dos produtos daquela categoria.
+	•	O produto mais caro da categoria.
+
+
+COMANDO
+SET SESSION sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
