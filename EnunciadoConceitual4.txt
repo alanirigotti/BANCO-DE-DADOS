@@ -1,0 +1,27 @@
+Exercício: Modelagem Lógica para um Sistema de Pedidos para Restaurantes
+Cenário:
+Um restaurante deseja implementar um sistema para gerenciar seus pedidos de forma eficiente. O sistema deve permitir o cadastro de clientes, funcionários, produtos e pedidos, garantindo que todas as operações sejam registradas corretamente.
+
+Requisitos:	
+O restaurante vende vários pratos e bebidas. Cada produto tem um nome, uma descrição, um preço e pertence a uma categoria (ex.: entrada, prato principal, sobremesa, bebida).
+Os clientes podem realizar pedidos. Cada pedido tem um número único, uma data e hora, um status (em andamento, finalizado, cancelado) e um valor total.
+Um pedido pode conter vários produtos, e cada produto pode ser solicitado em diferentes pedidos. Além disso, cada item do pedido deve registrar a quantidade solicitada.
+Os pedidos são atendidos por funcionários, que podem ser garçons ou atendentes. Cada funcionário tem um nome, um CPF e uma função no restaurante.
+Os clientes podem se cadastrar no sistema, fornecendo nome, telefone e, opcionalmente, um endereço.
+O sistema deve permitir a emissão de uma nota fiscal, contendo os produtos consumidos e o valor total da compra.
+
+Tarefa:
+Identifique as entidades principais e liste seus atributos.
+Determine os relacionamentos entre as entidades e defina suas cardinalidades.
+Crie um modelo lógico usando tabelas relacionais.
+Defina as chaves primárias e estrangeiras para garantir a integridade dos dados.
+Crie uma tabela intermediária para o relacionamento entre pedidos e produtos (já que um pedido pode ter vários produtos e um mesmo produto pode estar em vários pedidos).
+
+Dicas:
+Utilize um Diagrama Entidade-Relacionamento (DER) para visualizar melhor a estrutura do banco de dados.
+Escolha tipos de dados adequados para cada atributo (ex.: VARCHAR, DECIMAL, DATETIME).
+Considere criar uma tabela de status de pedido, caso o sistema precise de flexibilidade para adicionar novos status no futuro.
+Para facilitar análises futuras, registre o preço do produto no momento da compra na tabela intermediária de pedidos e produtos (pois os preços podem mudar com o tempo).
+
+Questão Extra:
+Como você modelaria um sistema para permitir pagamentos divididos entre diferentes formas de pagamento (ex.: metade no cartão e metade em dinheiro)?
