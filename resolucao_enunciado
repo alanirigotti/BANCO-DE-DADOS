@@ -1,0 +1,26 @@
+-- EXERCÍCIO 1 
+
+CREATE TABLE hospede(
+    id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    cpf CHAR(11) NOT NULL, 
+    telefone CHAR(11) NOT NULL, 
+    email CHAR(45) NOT NULL 
+);
+
+CREATE TABLE quarto(
+    id INT AUTO_INCREMENT NOT NULL PRIMARY KEY, 
+    tipo INT NOT NULL, 
+    status INT NOT NULL
+); 
+
+CREATE TABLE reserva(
+      id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+      dt_checkIn TIMESTAMP NOT NULL,
+      dt_checkOut TIMESTAMP NOT NULL, 
+      id_quarto INT NOT NULL,
+      id_hospede INT NOT NULL,
+      FOREIGN KEY id_hospede REFERENCES hospede (id),
+      FOREIGN KEY id_quarto REFERENCES quarto (id)
+);
+
+
