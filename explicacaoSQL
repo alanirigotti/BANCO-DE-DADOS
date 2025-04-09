@@ -1,0 +1,109 @@
+CREATE TABLE cliente (
+    clientes_id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(60) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    telefone CHAR(11) NOT NULL,
+    cpf CHAR(11) NOT NULL UNIQUE
+); 
+
+-- criando estrutura da tabela produto
+CREATE TABLE produto (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(60) NOT NULL,
+    valor DOUBLE NOT NULL  
+);
+ 
+CREATE TABLE pedidos ( 
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    data_pedido DATETIME NOT NULL
+); 
+
+-- tabela de pedidos se não existir. usado em contexto de manutenção ou adição em banco em produção 
+CREATE TABLE IF NOT EXISTS pedidos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    data_pedido TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+); 
+
+CREATE TABLE pedido_itens(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    quantidade INT NOT NULL, 
+    valor_total DOUBLE NOT NULL, 
+    pedidos_id INT NOT NULL, -- tabela pedidos coluna id
+    FOREIGN KEY (pedidos_id) REFERENCES pedidos (id)
+);
+
+CREATE TABLE funcionarios (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(45) NOT NULL,
+    cpf CHAR(11) NOT NULL UNIQUE    
+);
+
+
+CREATE TABLE funcionarios_funcoes (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+    funcao  varchar(50) NOT NULL,
+    cbo CHAR(7) NOT NULL,
+    descricao VARCHAR(255),
+    funcionarios_id INT NOT NULL,
+    FOREIGN KEY (funcionarios_id) 
+		REFERENCES funcionarios (id)
+		ON DELETE RESTRICT
+		ON UPDATE CASCADE -- apagar nessa e na tabela relacionada
+);
+
+CREATE TABLE pedidos (
+	id INT AUTO_INCREMENT PRIMARY KEY, 
+    `status` TINYINT(1) NOT NULL DEFAULT 0, 
+	data_hora TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    total DOUBLE NOT NULL DEFAULT 0,
+    nf VARCHAR(255), 
+    clientes_id INT NOT NULL,
+    funcionarios_id INT NOT NULL,
+    CONSTRAINT `fk_clientes_itens`
+		FOREIGN KEY (clientes_id)
+			REFERENCES clientes (id)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION,
+	CONSTRAINT `fk_pedidos_itens` 
+		FOREIGN KEY (pedidos_id)
+			REFERENCES pedidos (id) 
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION
+);
+
+CREATE TABLE pedidos_itens (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+    produto VARCHAR(150) NOT NULL, 
+    quantidade INT NOT NULL, 
+    valor DOUBLE NOT NULL, 
+    pedidos_id INT NOT NULL,
+    pedidos_clientes_id INT NOT NULL,
+    clientes_id INT NOT NULL,
+    CONSTRAINT `fk_pedidos_itens`
+		FOREIGN KEY (pedidos_id)
+			REFERENCES pedidos(id)
+		ON DELETE NO ACTION
+        ON UPDATE NO ACTION,
+	CONSTRAINT `fk_clientes_itens` 
+        FOREIGN KEY (clientes_id)
+			REFERENCES clientes (id)
+		ON DELETE NO ACTION
+        ON UPDATE NO ACTION
+);
+
+
+CREATE TABLE categorias (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    titulo VARCHAR(45) NOT NULL,
+    ativo TINYINT(1) NOT NULL DEFAULT 1
+);
+
+CREATE TABLE produtos (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    descricao VARCHAR(200), 
+    preco DOUBLE NOT NULL DEFAULT 0,
+    from_categorias INT NOT NULL,
+	FOREIGN KEY (categorias_id) REFERENCES categorias (id)
+    ON UPDATE RESTRICT ON DELETE RESTRICT
+);
