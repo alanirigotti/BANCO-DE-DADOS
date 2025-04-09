@@ -91,7 +91,6 @@ CREATE TABLE pedidos_itens (
         ON UPDATE NO ACTION
 );
 
-
 CREATE TABLE categorias (
 	id INT PRIMARY KEY AUTO_INCREMENT,
     titulo VARCHAR(45) NOT NULL,
