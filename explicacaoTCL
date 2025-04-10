@@ -1,0 +1,27 @@
+/*  TCL (Transaction Control Language) é um subconjunto da linguagem SQL que gerencia transações em bancos de dados. 
+	COMMIT: Salva permanentemente uma transação no banco de dados 
+	ROLLBACK: Desfaz uma transação, restaurando o banco de dados para o último estado salvo 
+	SAVEPOINT: Salva temporariamente uma transação, permitindo que você volte a esse ponto quando necessário 
+	BEGIN TRANSACTION: Inicia uma transação 
+*/
+
+CREATE TABLE contas (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(150) NOT NULL,
+    saldo DECIMAL(10,2)
+);
+
+INSERT INTO contas (nome, saldo) VALUES
+("Diego", 100.00),
+("Maria", 500.00);
+
+-- criando uma transação de transferência de valores 
+START TRANSACTION;
+
+UPDATE contas SET saldo = saldo - 200 WHERE nome = "Maria";
+SAVEPOINT depois_maria;
+UPDATE contas SET saldo = saldo + 200 WHERE nome = "Diego";
+
+ROLLBACK TO depois_maria;
+
+COMMIT;
