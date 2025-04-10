@@ -1,0 +1,26 @@
+Normalização: é uma prática audável para manter o padrão na manipulação do banco como a criação de tabelas. Dessa forma, esta prática minimizará os danos de dados duplicados, confusão entre a equipe, etc.
+----------------------------------------------------------------------------------------------
+
+- Formas Normais (FNs)
+
+Regra 11: Cada campo deve conter apenas valores únicos (não listas nem conjuntos) 
+Por exemplo: Cliente ter 2 endereços 
+
+Regra 3: Com a tabela tratada na regra 2, então nenhum capo nao-chave pode depender de outro campo não-chave. 
+Por exemplo: Tudo se baseia na criação de tabelas se paradas e depois fazer relações
+
+
+Desnormalização: Sistemas que apenas consultamos dados
+----------------------------------------------------------------------------------------------
+
+Características:
+- Reduz joins
+- Otimiza a busca
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Afinal, quando usar cada um deles?
+- Sistemas transacionais (OLTP): Normalização - Ex: MySQL -> SELECT, DELETE, ETCt
+- Sistemas analísticos (OLAP): Denormalização - Ex: PowerBI
+- Muitas atualizações: Normalização
+- Consultas complexas: Desnormalização
