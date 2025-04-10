@@ -1,0 +1,27 @@
+OTIMIZAÇÃO: é essencial para garantir a perfomance do bancoo de dados principalmente quando o banco cresce 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1. Indices são estruturas de dados que melhoram a velocidade das consultas de uma tabela permitando que o banco encontre dados mais rapidamente. Funciona como se fosse um índice de um livro. 
+
+Exemplo:
+CREATE INDEX nome_index ON tabela(campo)
+CREATE INDEX (idx_nome ON clientes(nome)
+
+2. Tipos de indices
+PRIMARY KEY -> índice único e principal da tabela
+UNIQUE -> garante que valores não se repitam
+INDEX ou KEY -> índice normal para agilizar processo de busca (SELECT) 
+FULTEXT -> busca textual eficiente 
+COMPOSTO -> índice em varias colunas
+
+3. Quando usar índices?
+Use indices em colunas que:
+- Estarão presentes na claúsula WHERE
+- Participam de JOIN entre tabelas
+- Estão em ORDER BY ou GROUP BY
+- São usadas em LIKE
+
+4. Quando não usar índices?
+- Em tabelas pequenas (ganho mínimo)
+- Em colunas com valores repetidos (baixa seletividade)
+- Quando se usa muito INSERT, UPDATE (índices podem atrsar essas operações)
